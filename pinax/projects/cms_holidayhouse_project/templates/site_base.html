@@ -17,18 +17,18 @@
 {% block login %}
     {% if user.is_authenticated %}
        <a class="tab_logout" href="/openid/logout/?next={% url acct_logout %}"><span>{% trans "Logout" %}</span></a>
-       <a class="tab_account" href="{% url acct_email %}"><span>{% trans "Account" %}</span></a>
+       <a class="tab_account" href="{% url 'acct_email' %}"><span>{% trans "Account" %}</span></a>
     {% else %}
-        <a class="tab_login" href="{% url acct_login %}"><span>{% trans "Login" %}</span></a>
+        <a class="tab_login" href="{% url 'acct_login' %}"><span>{% trans "Login" %}</span></a>
     {% endif %}
 {% endblock %}
 
 {% block tabs %}
     {% spaceless %}
-    <a class="tab_home" href="{% url home %}">{% trans "Home" %}</a>
-    <a class="tab_rooms" href="{% url rooms %}">{% trans "Rooms" %}</a>
-    <a class="tab_prices" href="{% url prices %}">{% trans "Prices" %}</a>
-    <a class="tab_contact" href="{% url contact %}">{% trans "Contact" %}</a>
+    <a class="tab_home" href="{% url 'home' %}">{% trans "Home" %}</a>
+    <a class="tab_rooms" href="{% url 'rooms' %}">{% trans "Rooms" %}</a>
+    <a class="tab_prices" href="{% url 'prices' %}">{% trans "Prices" %}</a>
+    <a class="tab_contact" href="{% url 'contact' %}">{% trans "Contact" %}</a>
     {% endspaceless %}
 {% endblock %}
 

@@ -7,7 +7,7 @@
 {% block head_title %}{% trans "Notices" %}{% endblock %}
 
 {% block extra_head %}
-    <link rel="alternate" type="application/atom+xml" title="Notices Feed" href="{% url notification_feed_for_user %}" />
+    <link rel="alternate" type="application/atom+xml" title="Notices Feed" href="{% url 'notification_feed_for_user' %}" />
     <link rel="stylesheet" href="{{ STATIC_URL }}pinax/css/notification.css" />
 {% endblock %}
 
@@ -18,7 +18,7 @@
     {% autopaginate notices %}
     
     {% if notices %}
-        <a href="{% url notification_mark_all_seen %}">{% trans "Mark all unseen notices seen" %}</a>
+        <a href="{% url 'notification_mark_all_seen' %}">{% trans "Mark all unseen notices seen" %}</a>
         
         {# TODO: get timezone support working with regroup #}
         {% regroup notices by added.date as notices_by_date %}
@@ -49,7 +49,7 @@
     <div class="notice_settings">
         <h2>{% trans "Settings" %}</h2>
         
-        {% url acct_email as email_url %}
+        {% url 'acct_email' as email_url %}
         {% if user.email %}
             <p>
                 {% trans "Primary email" %}:<br />
